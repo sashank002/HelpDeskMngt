@@ -1,0 +1,6 @@
+Read Me
+
+======================
+1. Scaffold-DbContext to update DB models from latest DB
+
+Scaffold-DbContext "Server=LAPTOP-L986OD5L\SQLEXPRESS01;Database=HelpDeskDB;Trusted_Connection=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables UserMst 
