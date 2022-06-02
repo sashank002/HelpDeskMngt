@@ -1,60 +1,119 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-
-
+﻿
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Register Here </title>
-    </head>
-    <body>
-      <form method="post" >
+<head>
+
+    <title>Register Here </title>
+</head>
+<body>
+    <form method="post" id="form">
         <fieldset>
-          <legend>Add Customer</legend>
-          <div>
-            <label for="UserName">Name:</label>
-            <input type="text" name="UserName" value="" />
-          </div>
-          <div>
-            <label for="Email">Email : </label>
-            <input type="email" name="Email" value="" />
-          </div>
-          <div>
-            <label for="Address">Address:</label>
-            <input type="text" name="Address" value="" />
-          </div>
-          <div>
-            <label for="Contact">Contact:</label>
-            <input type="number" name="Contact" value="" />
-          </div>
-          <div>
-            <label for="Password">Password:</label>
-            <input type="password" name="Password" value="" />
-          </div>
-          <div>
-            <label for="HintQue">Hint Question :</label>
-            <input type="text" name="HintQue" value="" />
-          </div>
-          <div>
-            <label for="HintAns">Hint Answer :</label>
-            <input type="text" name="HintAns" value="" />
-          </div>
-          <div>
-            <label for="Type">Choose a User type :</label>
-            <select name="Type" id="cars">
-            <option value="Admin">Admin</option>
-            <option value="EMmployee">Employee</option>
-            </select>
-          </div>
-          <div>
-            <label>&nbsp;</label>
-            <input type="submit" value="Submit" class="submit" />
-          </div>
+            <legend>Add Customer</legend>
+            <div>
+                <label for="UserName">Name:</label>
+                <input type="text" name="UserName" value="" id="UserNameInput" />
+            </div>
+            <div>
+                <label for="Email">Email : </label>
+                <input type="email" name="Email" value="" id="EmailInput" />
+            </div>
+            <div>
+                <label for="Address">Address:</label>
+                <input type="text" name="Address" value="" id="AddressInput" />
+            </div>
+            <div>
+                <label for="Contact">Contact:</label>
+                <input type="number" name="Contact" value="" id="ContactInput" />
+            </div>
+            <div>
+                <label for="Password">Password:</label>
+                <input type="password" name="Password" value="" id="PasswordInput" />
+            </div>
+            <div>
+                <label for="HintQue">Hint Question :</label>
+                <input type="text" name="HintQue" value="" id="HintQueInput" />
+            </div>
+            <div>
+                <label for="HintAns">Hint Answer :</label>
+                <input type="text" name="HintAns" value="" id="HintAnsInput" />
+            </div>
+            <div>
+                <label for="Type">Choose a User type :</label>
+                <select name="Type" id="TypeInput">
+                    <option value="Admin">Admin</option>
+                    <option value="EMmployee">Employee</option>
+                </select>
+            </div>
+            <div>
+                <label>&nbsp;</label>
+                <input type="button" id="btnSave" value="Submit" class="submit" onsubmit="submitHandle" />
+            </div>
         </fieldset>
-      </form>
-    </body>
+    </form>
+
+
+     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+       
+    $(document).ready(function () {
+
+        $("#btnSave").click(function () {
+
+            var user;
+            user = {
+                "UserName": $("#UserNameInput").val(),
+                "Email": $("#EmailInput").val(),
+                "Address": $("#AddressInput").val(),
+                //"Contact": $("#ContactInput").val(),
+                "Passwrod": $("#PasswordInput").val(),
+                "HintQue": $("#HintQueInput").val(),
+                "HintAns": $("#HintAnsInput").val(),
+                //"UserTypeId": 1
+            }
+
+            console.log(JSON.stringify(user));
+            
+            debugger
+
+            $.ajax({
+                url: "/User/saveUser",
+                type: "POST",
+                data: JSON.stringify(user),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    console.log(response);
+                    
+                },
+                error: function (er) {
+                    //Toast.fire({ icon: 'error', title: "Error Occured!, please check logs" });
+                    console.log(er);
+
+                    
+                }
+            });
+
+        });
+
+
+
+    });
+
+
+
+
+
+    </script>
+   
+   @* @section Scripts {
+
+    <script src="~/Areas/Registration/Scripts/Organisation/Index.js?_=@DateTime.Now.Ticks"></script>
+}*@
+</body>
+
+
+
+
 </html>
+
+

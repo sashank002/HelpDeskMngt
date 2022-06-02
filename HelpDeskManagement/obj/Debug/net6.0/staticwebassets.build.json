@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Uwv1jVjjU76XmlLc7VEk7cM5ctrmMQE1zpU5KRWQ7lA=",
+  "Hash": "P5DVVNp8WD4gha+PSrMhNdzWkeueLUs3NhCduXAgZlM=",
   "Source": "HelpDeskManagement",
   "BasePath": "_content/HelpDeskManagement",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\parmar sashank\\source\\repos\\HelpDeskManagement\\HelpDeskManagement\\wwwroot\\PageJs\\User\\Index.js",
+      "SourceId": "HelpDeskManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\parmar sashank\\source\\repos\\HelpDeskManagement\\HelpDeskManagement\\wwwroot\\",
+      "BasePath": "_content/HelpDeskManagement",
+      "RelativePath": "PageJs/User/Index.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PageJs\\User\\Index.js"
     }
   ]
 }

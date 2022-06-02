@@ -20,7 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Js\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\PageJs\User\Index.js" />
   </ItemGroup>
 
 </Project>

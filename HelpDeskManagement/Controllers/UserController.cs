@@ -20,15 +20,17 @@ namespace HelpDeskManagement.Controllers
         }
 
         [HttpPost]
-
-        public IActionResult saveUser(UserMst model)
+        
+        public IActionResult saveUser([FromBody]UserMst model)
         {
-            Response res = new Response();
-            _context.UserMsts.Add(model);
-            _context.SaveChanges();
-            res.status = true;
-            res.message = "success";
-            return Ok(res) ;
+                Response res = new Response();
+                _context.UserMsts.Add(model);
+                _context.SaveChanges();
+                res.status = true;
+                res.message = "success";
+                return Ok(res);
+            
+            
         }
 
     }
