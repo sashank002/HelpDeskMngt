@@ -1,31 +1,108 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
 
 <!DOCTYPE html>
 <html>
     <head>
         <title>Log in Here </title>
+        <link rel="stylesheet" href="~/css/Login/Index.css" asp-append-version="true" />
     </head>
     <body>
-      <form method="post" >
+     @* <form method="post" >
         <fieldset>
           <legend>Add Customer</legend>
           <div>
             <label for="Email">Email : </label>
-            <input type="email" name="Email" value="" />
+            <input type="email" name="Email" value="" id="EmailInput" />
           </div>
           <div>
             <label for="Password">Password:</label>
-            <input type="password" name="Password" value="" />
+            <input type="password" name="Password" value="" id="PasswordInput" />
           </div>
           <div>
             <label>&nbsp;</label>
-            <input type="submit" value="Submit" class="submit" />
+            <input type="submit" value="Submit" class="submit" id="btnSave" />
           </div>
         </fieldset>
-      </form>
+      </form>*@
+
+      <div id="tsparticles"></div>
+<div class="login-box">
+  <h2>Login</h2>
+  <form>
+    <div class="user-box">
+      <input type="email" name="Email" value="" id="EmailInput" />
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="Password" value="" id="PasswordInput" />
+      <label>Password</label>
+    </div>
+    <a sp-area="" asp-controller="User" asp-action="Index"  id="btnRegister">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Create new
+    </a>
+    <a href="#"  type="submit" value="Submit" class="submit" id="btnSave">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Login
+    </a>
+    
+  </form>
+</div>
+
+      <script src="~/lib/jquery/dist/jquery.min.js"></script>
+       <script>
+       
+    $(document).ready(function () {
+       
+        $("#btnSave").click(function (e) {
+
+            e.preventDefault();
+            var user;
+            user = {
+                "Email": $("#EmailInput").val(),
+                "Passwrod": $("#PasswordInput").val()
+            }
+
+            console.log(JSON.stringify(user));
+            
+            debugger
+
+            $.ajax({
+                url: "/Login/validateUser",
+                type: "POST",
+                data: JSON.stringify(user),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    
+                    console.log(response);
+                    alert(response.message);
+                },
+                error: function (er) {
+                    //Toast.fire({ icon: 'error', title: "Error Occured!, please check logs" });
+                    console.log(er);
+
+                    
+                }
+            });
+
+        });
+
+
+
+    });
+
+
+
+
+
+    </script>
+
     </body>
 </html>

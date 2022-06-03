@@ -4,9 +4,10 @@
 <head>
 
     <title>Register Here </title>
+    <link rel="stylesheet" href="~/css/User/Index.css" asp-append-version="true"/>
 </head>
 <body>
-    <form method="post" id="form">
+    @*<form method="post" id="form">
         <fieldset>
             <legend>Add Customer</legend>
             <div>
@@ -49,7 +50,104 @@
                 <input type="button" id="btnSave" value="Submit" class="submit" onsubmit="submitHandle" />
             </div>
         </fieldset>
-    </form>
+    </form>*@
+
+
+    <div class="container">
+  @*<div class="row"><img src="https://iephosting.com/app/views/client/bootstrap/images/graphic8.svg" id="imageAsBackground" alt="" /></div>*@
+  <div class="row align-items-center justify-content-center" style="height:100vh;">
+    <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+      <div class="card">
+        <div class="card-body">
+          <d@*iv class="form-icon">
+            <div class="icon-holder">
+              <i class="fa-2x fa-solid fa-user-plus text-light" style="margin-top: 5px;"></i>
+            </div>
+          </div>*@
+          <h3 class="text-center">REGISTER</h3>
+          <form id="registerForm">
+            <div class="form-floating mb-2">
+              
+              <input type="text" name="UserName" value="" id="UserNameInput" class="form-control" autocomplete="off"/>
+              <label for="userInput">Username</label>
+            </div>
+            <div class="form-floating mb-2">
+              
+              <input type="email" name="Email" value="" id="EmailInput"  class="form-control" autocomplete="off"/>
+              <label for="emailInput">Email address</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input type="password" name="Password" value="" id="PasswordInput" class="form-control" />
+              <label for="passwordInput">Password</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input type="text" name="Address" value="" id="AddressInput" class="form-control" />
+              <label for="Address">Address</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input type="number" name="Contact" value="" id="ContactInput" class="form-control" autocomplete="off" />
+              <label for="Contact">Contact No</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input  type="text" name="HintQue" value="" id="HintQueInput" class="form-control" />
+              <label for="HintQue">Hint Question</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input type="text" name="HintAns" value="" id="HintAnsInput" class="form-control" />
+              <label for="HintAns">Hint Answer</label>
+            </div>
+            <div class="form-floating mb-2">
+                <label for="Type">Choose a User type :</label>
+                <select name="Type" id="TypeInput">
+                    <option value="Admin">Admin</option>
+                    <option value="EMmployee">Employee</option>
+                </select>
+            </div>
+
+            <div class="text-center mb-5">
+              <button class="btn btn-outline-primary" type="submit">REGISTER</button>
+            </div>
+          </form>
+        </div>
+        @*<div class="card-footer text-center">
+          <button class="btn btn-sm btn-primary radius" data-bs-toggle="modal" data-bs-target="#staticBackdrop">See List of Accounts</button>
+        </div>*@
+      </div>
+    </div>
+  </div>
+</div>
+@*
+<div class="modal" id="staticBackdrop">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">List of registered accounts</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="table-responsive">
+          <table id="accountTable" class="table table-striped" style="width:100%">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Password</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>*@
 
 
      <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -64,11 +162,11 @@
                 "UserName": $("#UserNameInput").val(),
                 "Email": $("#EmailInput").val(),
                 "Address": $("#AddressInput").val(),
-                //"Contact": $("#ContactInput").val(),
+                "Contact": $("#ContactInput").val(),
                 "Passwrod": $("#PasswordInput").val(),
                 "HintQue": $("#HintQueInput").val(),
                 "HintAns": $("#HintAnsInput").val(),
-                //"UserTypeId": 1
+                "UserTypeId": 1
             }
 
             console.log(JSON.stringify(user));

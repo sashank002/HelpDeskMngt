@@ -33,5 +33,26 @@ namespace HelpDeskManagement.Controllers
             
         }
 
+        [HttpPost]
+
+        public async Task<ActionResult<UserMst>> validateUser([FromBody]UserMst obj)
+        {
+            Response res = new Response();
+            var user = await _context.UserMsts.FindAsync(obj.Email);
+            if(user == null)
+            {
+                return BadRequest("user not exist");
+            }
+
+            if(user.Passwrod != obj.Passwrod)
+            {
+                return BadRequest("Password is wrong");
+            }
+
+            return Ok("you are logged in");
+        }
+
+
+
     }
 }
